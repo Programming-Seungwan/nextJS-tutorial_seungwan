@@ -9,6 +9,7 @@ import {
   Revenue,
 } from './definitions';
 import { formatCurrency } from './utils';
+// unstable_noStore 함수는 캐싱을 막아줄 수 있다 : react - query의 원리를 차용함
 import { unstable_noStore as noStore } from 'next/cache';
 
 export async function fetchRevenue() {

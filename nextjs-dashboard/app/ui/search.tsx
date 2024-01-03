@@ -1,4 +1,5 @@
 'use client';
+// Search 컴포넌트와 Pagination 컴포넌트는 클라이언트 컴포넌트로 만들어주는 것이 포인트이다
 
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
@@ -10,9 +11,8 @@ export default function Search({ placeholder }: { placeholder: string }) {
   const { replace } = useRouter();
 
   const handleSearch = useDebouncedCallback((term) => {
-    console.log(`Searching... ${term}`);
-
     const params = new URLSearchParams(searchParams);
+    params.set('page', '1');
     if (term) {
       params.set('query', term);
     } else {
